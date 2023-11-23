@@ -13,14 +13,14 @@ class EventsController < ApplicationController
     @event = @user.created_events.build(event_params)
 
     if @event.save
-      redirect_to event_path(@event)
+      redirect_to user_path(@user)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def event_params
-    params.require(:event).permit(:date,:location,:creator_id)
+    params.require(:event).permit(:title,:body,:date,:location,:creator_id)
   end
 
 end
