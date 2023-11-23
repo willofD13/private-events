@@ -1,0 +1,45 @@
+<h1> New Event: <h1>
+
+<%= form_with model: @event do |f| %>
+<div>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+    <% @event.errors.full_messages_for(:title).each do |message| %>
+    <div> <%= message %> </div>
+    <% end %>
+</div>
+
+<div>
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+    <% @event.errors.full_messages_for(:body).each do |message|%>
+    <div> <%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= f.label :date %><br>
+    <%= f.date_field :date %>
+    <% @event.errors.full_messages_for(:date).each do |message|%>
+    <div> <%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+    <% @event.errors.full_messages_for(:location).each do |message|%>
+    <div> <%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <%= f.hidden_field :user_id, value: "#{current_user.id}" %>
+    <% @event.errors.full_messages_for(:user_id).each do |message|%>
+    <div> <%= message %></div>
+    <% end %>
+</div>
+
+<div> <%= f.submit %> </div>
+
+<% end %>
