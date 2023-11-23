@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.find(params[:id])
+    @event = Event.new
   end
 
   def create
