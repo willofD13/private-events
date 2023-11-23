@@ -1,9 +1,1 @@
-<h1>Events</h1>
 
-<% if user_signed_in?%>
-    <div><%= button_to "Sign out", destroy_user_session_path, method: :delete %></div>
-    <div><%= link_to "Create event", new_event_path%></div>
-<% else %>
-    <div><%= link_to "Sign up", new_user_registration_path%></div>
-    <div><%= link_to "Log in", new_user_session_path%></div>
-<% end %>
