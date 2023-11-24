@@ -1,7 +1,7 @@
 <h1>Available events</h1>
 
 <div><% @events.each do |e| %>
-         <strong><%= e.title %></strong>
-         <div><%= link_to "See event", event_path(e.id)<br>
+         <h2><strong><%= e.title %></strong></h2>
+         <div><%= link_to "See event", event_path(e.id)%></div><br>
     <% end %>
 </div>
