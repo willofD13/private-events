@@ -12,7 +12,7 @@ class EventAttendingsController < ApplicationController
     @event_attending = @event.event_attendings.create(event_attending_params)
 
     if @event_attending.save
-      redirect_to root_path
+      redirect_to event_path(@event.id)
     else
       redirect_to events_path, status: :unprocessable_entity
     end
