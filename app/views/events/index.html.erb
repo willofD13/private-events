@@ -1,1 +1,10 @@
+<h1>Available events</h1>
 
+<div><% @events.each do |e| %>
+         <strong><%= e.title %></strong>
+         <div><%= e.body %></div>
+         <div><%= e.creator.username %></div>
+         <div><%= e.date %></div>
+         <div><%= e.location %></div><br>
+    <% end %>
+</div>
