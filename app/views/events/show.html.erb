@@ -2,4 +2,10 @@
 <div><%= @event.creator.username %></div>
 <div><%= @event.date %></div>
 <div><%= @event.location %></div>
+<strong> Attendees </strong>
+<ul>
+<div><% @event.attendees.each do |a| %></div>
+        <li><%= a.username %></li>
+    <% end %>
+</ul>
 <div><%= render "event_attendings/form"%>
