@@ -1,6 +1,7 @@
 <h1>Home</h1>
 
 <% if user_signed_in?%>
+    <div><%= link_to "My events", user_path(current_user)%></div><br>
     <div><%= link_to "Create event", new_event_path%></div><br>
     <div><%= button_to "Sign out", destroy_user_session_path, method: :delete %></div>
 <% else %>
