@@ -8,10 +8,28 @@
     <div><%= e.location %></div>
     <% end %>
 
-<h2>Events to attend</h2>
-<div><% @user.attended_events.each do |e| %></div>
-    <div><%= e.title %></div>
-    <div><%= e.body %></div>
-    <strong><%= e.date %></strong>
-    <div><%= e.location %></div><br>
+<% past = []%>
+<% future = []%>
+<% @user.attended_events.each do |e| %>
+    <% if Date.parse(e.date) > Date.today%>
+        <% future << e %>
+    <% else %>
+        <% past << e %>
+    <% end %>
 <% end %>
+
+<h2> Events attended</h2>
+<ul>
+<div><% past.each do |e| %></div>
+    <li><%= e.title %></li>
+    <div><%= e.date %></div><br>
+<% end %>
+</ul>
+
+<h2> Events to attend</h2>
+<ul>
+<div><% future.each do |e| %></div>
+    <li><%= e.title %></li>
+    <div><%= e.date %></div><br>
+<% end %>
+</ul>
