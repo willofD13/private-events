@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'event_attendings/index'
   devise_for :users
   root "homes#index"
   resources :users
-  resources :events
-  resources :event_attendings
+  resources :events do
+    resources :event_attendings
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
