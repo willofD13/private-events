@@ -2,9 +2,6 @@
 
 <div><% @events.each do |e| %>
          <strong><%= e.title %></strong>
-         <div><%= e.body %></div>
-         <div><%= e.creator.username %></div>
-         <div><%= e.date %></div>
-         <div><%= e.location %></div><br>
+         <div><%= link_to "See event", event_path(e.id)<br>
     <% end %>
 </div>
