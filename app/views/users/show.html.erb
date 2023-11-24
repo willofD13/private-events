@@ -7,3 +7,11 @@
     <strong><%= e.date %></strong>
     <div><%= e.location %></div>
     <% end %>
+
+<h2>Events to attend</h2>
+<div><% @user.attended_events.each do |e| %></div>
+    <div><%= e.title %></div>
+    <div><%= e.body %></div>
+    <strong><%= e.date %></strong>
+    <div><%= e.location %></div><br>
+<% end %>
