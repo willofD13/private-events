@@ -6,6 +6,7 @@
     <div><%= e.body %></div>
     <strong><%= e.date %></strong>
     <div><%= e.location %></div>
+    <div><%= link_to "Edit event", edit_event_path(e.id) %>
     <% end %>
 
 <% past = []%>
