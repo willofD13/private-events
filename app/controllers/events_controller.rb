@@ -23,6 +23,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    
+    redirect to root_path, status: :see_other
+  end
+
   def event_params
     params.require(:event).permit(:title,:body,:date,:location,:creator_id)
   end
