@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :destroy_event_attendings, only: [:destroy]
   def index
     @events = Event.all
   end
@@ -41,11 +42,16 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     
-    redirect to root_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
+  private
   def event_params
     params.require(:event).permit(:title,:body,:date,:location,:creator_id)
   end
 
+  def destroy_event_attendings
+    @event = Event.find(params[:id])
+    @event.event_attendings.destroy_all
+  end
 end
