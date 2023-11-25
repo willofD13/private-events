@@ -8,6 +8,8 @@
         <li><%= a.username %></li>
     <% end %>
 </ul>
-<div><%= render "event_attendings/form"%></div><br>
+<% if Date.parse(@event.date) > Date.today %>
+    <div><%= render "event_attendings/form"%></div><br>
+<% end %>
 
 <div><%= link_to "Back to home", root_path%></div>
