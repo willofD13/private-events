@@ -1,7 +1,27 @@
 <h1>Available events</h1>
 
-<div><% @events.each do |e| %>
-         <h2><strong><%= e.title %></strong></h2>
-         <div><%= link_to "See event", event_path(e.id)%></div><br>
+<% past = []%>
+<% future = []%>
+<% @events.each do |e| %>
+    <% if Date.parse(e.date) > Date.today %>
+        <% future << e %>
+    <% else %>
+        <% past << e %>
     <% end %>
-</div>
+<% end %>
+
+<h2> Past events </h2>
+<ul>
+<div><% past.each do |e| %></div>
+    <li><%= e.title %></li>
+    <div><%= link_to "See event", event_path(e.id)%></div><br>
+<% end %>
+</ul>
+
+<h2> Future events </h2>
+<ul>
+<div><% future.each do |e| %></div>
+    <li><%= e.title %></li>
+    <div><%= link_to "See event", event_path(e.id)%></div><br>
+<% end %>
+</ul>
