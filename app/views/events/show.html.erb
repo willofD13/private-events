@@ -8,7 +8,7 @@
         <li><%= a.username %></li>
     <% end %>
 </ul>
-<% if Event.future %>
+<% if Event.future && !@event.attendees.include?(current_user) %>
     <div><%= render "event_attendings/form"%></div><br>
 <% end %>
 
