@@ -2,7 +2,6 @@ class EventsController < ApplicationController
   before_action :destroy_event_attendings, only: [:destroy]
   def index
       @events = Event.all
-    end
   end
 
   def new
