@@ -12,19 +12,10 @@
                                                             } %>
     <% end %>
 
-<% past = []%>
-<% future = []%>
-<% @user.attended_events.each do |e| %>
-    <% if Date.parse(e.date) > Date.today%>
-        <% future << e %>
-    <% else %>
-        <% past << e %>
-    <% end %>
-<% end %>
 
 <h2> Events attended</h2>
 <ul>
-<div><% past.each do |e| %></div>
+<div><% @user.attended_events.past.each do |e| %></div>
     <li><%= e.title %></li>
     <div><%= e.date %></div><br>
 <% end %>
@@ -32,7 +23,7 @@
 
 <h2> Events to attend</h2>
 <ul>
-<div><% future.each do |e| %></div>
+<div><% @user.attended_events.future.each do |e| %></div>
     <li><%= e.title %></li>
     <div><%= e.date %></div><br>
 <% end %>
