@@ -19,8 +19,8 @@ class EventAttendingsController < ApplicationController
   end
 
   def destroy
-    @event_attending = EventAttending.where(attended_event_id: params[:event_id], event_attendee_id: current_user.id)
-    @event_attending.destroy(@event_attending)
+    @event_attending = EventAttending.find_by(attended_event_id: params[:event_id], event_attendee_id: current_user.id)
+    @event_attending.destroy
 
     redirect_to root_path, status: :see_other, notice: "You have been removed from #{@event_attending.attended_event.title} list of attendees."
   end
