@@ -10,11 +10,7 @@ class Event < ApplicationRecord
     validates :date, presence: true
     validates :location, presence: true
 
-    def self.past
-        where(date: ...Date.today)
-    end
+    scope :past, -> { where(date: ...Date.today) }
 
-    def self.future
-        where(date:  Date.today..)
-    end
+   scope :future, -> { where(date: Date.today..) }
 end
