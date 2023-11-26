@@ -13,6 +13,6 @@
 <% @events.future.each do |e| %>
     <li><%= e.title %></li>
     <strong><%= e.date %></strong>
-    <%= link_to "See event", event_path(e) %>
+    <div><%= link_to "See event", event_path(e) %></div><br>
 <% end %>
 </ul>
