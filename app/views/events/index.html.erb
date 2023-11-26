@@ -1,8 +1,18 @@
 <h1>Events</h1>
 
+<h2> Past events </h2>
 <ul>
-<% @events.each do |e| %>
+<% @events.past.each do |e| %>
     <li><%= e.title %></li>
     <strong><%= e.date %></strong>
+<% end %>
+</ul>
+
+<h2> Future events </h2>
+<ul>
+<% @events.future.each do |e| %>
+    <li><%= e.title %></li>
+    <strong><%= e.date %></strong>
+    <%= link_to "See event", event_path(e) %>
 <% end %>
 </ul>
