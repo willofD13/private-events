@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get "events/:date", to: "events#index"
   root "homes#index"
   resources :users
   resources :events do
