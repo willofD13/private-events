@@ -26,6 +26,9 @@
 <div><% @user.attended_events.future.each do |e| %></div>
     <li><%= e.title %></li>
     <div><%= e.date %></div><br>
+    <div><%= link_to "Will not go", event_event_attending_path(e), data: { turbo_method: :delete,
+                                                                           turbo_confirm: "Are you sure?"
+                                                                         } %>
 <% end %>
 </ul>
 
