@@ -18,6 +18,13 @@ class EventAttendingsController < ApplicationController
     end
   end
 
+  def destroy
+    @event_attending = EventAttending.where(attended_event_id: params[:event_id], event_attendee_id: current_user.id)
+    @event_attending.destroy(@event_attending)
+
+    redirect_to root_path, status: :see_other
+  end
+
   def event_attending_params
     params.require(:event_attending).permit(:attended_event_id,:event_attendee_id)
   end
