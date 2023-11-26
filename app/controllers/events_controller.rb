@@ -1,7 +1,13 @@
 class EventsController < ApplicationController
   before_action :destroy_event_attendings, only: [:destroy]
   def index
-    @events = Event.all
+    if params[:date] == 'past'
+      @events = Event.past
+    elsif params[:date] == 'future'
+      @events = Event.future
+    else
+      @events = Event.all
+    end
   end
 
   def new
