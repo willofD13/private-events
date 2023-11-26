@@ -1,27 +1,8 @@
-<h1>Available events</h1>
+<h1>Events</h1>
 
-<% past = []%>
-<% future = []%>
+<ul>
 <% @events.each do |e| %>
-    <% if Date.parse(e.date) > Date.today %>
-        <% future << e %>
-    <% else %>
-        <% past << e %>
-    <% end %>
-<% end %>
-
-<h2> Past events </h2>
-<ul>
-<div><% past.each do |e| %></div>
     <li><%= e.title %></li>
-    <div><%= link_to "See event", event_path(e.id)%></div><br>
-<% end %>
-</ul>
-
-<h2> Future events </h2>
-<ul>
-<div><% future.each do |e| %></div>
-    <li><%= e.title %></li>
-    <div><%= link_to "See event", event_path(e.id)%></div><br>
+    <strong><%= e.date %></strong>
 <% end %>
 </ul>
