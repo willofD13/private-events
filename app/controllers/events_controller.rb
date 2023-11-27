@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:new,:index]
-  before_action :destroy_event_attendings, only: [:destroy]
+
   def index
       @events = Event.all
   end
@@ -51,8 +51,4 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title,:body,:date,:location,:creator_id)
   end
 
-  def destroy_event_attendings
-    @event = Event.find(params[:id])
-    @event.event_attendings.destroy_all
-  end
 end
